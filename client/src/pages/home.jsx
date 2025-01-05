@@ -205,7 +205,7 @@ const Home = () => {
       <div className="newsb">
         <News />
       </div>
-      <button  className='logoutbutton'onClick={handleLogout}>Logout</button>
+     
     </>
   );
 };

@@ -91,7 +91,7 @@ const Navbar = () => {
         </div>
 
         <div className="navlinks">
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to ='/events'>Events</NavLink>
           {!user ? (
