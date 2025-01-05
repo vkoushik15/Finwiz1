@@ -1,0 +1,14 @@
+.about-container {
+    margin-top: 70px; /* Ensure content starts below the fixed navbar */
+    text-align: center; /* Center the text */
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .about-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 50px; /* Extra space to ensure it's well-positioned */
+  }
+  

@@ -1,7 +1,10 @@
+import '../styling/about.css'
 const About =()=>{
 return(
     <>
-    <h1>Welcome to the page</h1>
+    <div className="about-container">
+    <h1>About page will be updated soon</h1>
+    </div>
     </>
 )
 }

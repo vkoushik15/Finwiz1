@@ -1,4 +1,4 @@
-import { useState } from "react";
+/*import { useState } from "react";
 import {useNavigate} from 'react-router-dom'
 import { auth,googleProvider } from "./firebase";
 import {createUserWithEmailAndPassword,updateProfile,signInWithPopup} from 'firebase/auth'
@@ -69,3 +69,84 @@ const handlegoog=async()=>{
     )
 }
 export default Register
+*/
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { auth, googleProvider } from "./firebase";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  signInWithPopup,
+} from "firebase/auth";
+import "../styling/register.css"; // Dedicated CSS file for Register styling
+
+const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const userCred = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCred.user;
+      await updateProfile(user, {
+        displayName: name,
+      });
+      alert("Registration successful");
+      navigate("/home");
+    } catch (error) {
+      console.error("Error during registration:", error);
+    }
+  };
+
+  const handleGoogleRegister = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      await updateProfile(user, { displayName: user.displayName });
+      alert("Successfully registered with Google account");
+      navigate("/home");
+    } catch (error) {
+      console.error("Google registration error:", error);
+    }
+  };
+
+  return (
+    <div className="register-container">
+      <form onSubmit={handleRegister} className="register-form">
+        <h2>Create an Account</h2>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit" className="register-btn">
+          Register
+        </button>
+      </form>
+      <button onClick={handleGoogleRegister} className="google-register-btn">
+        Register with Google
+      </button>
+    </div>
+  );
+};
+
+export default Register;

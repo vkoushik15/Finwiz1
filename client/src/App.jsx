@@ -6,6 +6,7 @@ import Login from './pages/login'
 import Register from './pages/register'
 import Navbar from './components/navbar'
 import About from './pages/about'
+import Events from './pages/events'
 function App() {
  
 
@@ -15,6 +16,7 @@ function App() {
     <Routes>
       <Route path='/home' element={<Home/>}/>
      <Route path='/about' element={<About/>}/>
+     <Route path='/events' element={<Events/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
     </Routes>

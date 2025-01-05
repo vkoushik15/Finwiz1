@@ -64,4 +64,9 @@ body {
     align-items: center;
     height: 100vh;
   }
-  
+  .newsheader{
+    font-size: 70px;
+    color:#b51851;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }

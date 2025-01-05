@@ -11,7 +11,8 @@ const[loading,Setloading] =useState(false)
 const newsdata= async()=>{
     try {
         Setloading(true)
-        const resp = await axios.get(`https://newsdata.io/api/1/latest?apikey=${API}&q=money&country=in`)
+        const resp = await axios.get(`https://newsdata.io/api/1/news?apikey=${API}&q=economics&language=en&category=business `)
+        
        
         console.log('hello')
         console.log(resp.data)
@@ -27,7 +28,7 @@ useEffect(()=>{
 },[])
     return(
     <>
-    <h1>The Headlines are</h1>
+    <h1 className='newsheader'> Finance News </h1>
     {loading ?(
         <Spinner/>
     ):(<div className="k">
